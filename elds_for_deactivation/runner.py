@@ -12,7 +12,7 @@ def make_dataframe_from_csv(csv_file: Path) -> pd.DataFrame:
 
 
 def merge_dataframes() -> pd.DataFrame:
-    elds_directory: Path = Path("./elds/")
+    elds_directory: Path = Path(".", "elds")
     files: list[Path] = list_directory_contents(directory=elds_directory)
 
     merged_dataframes: pd.DataFrame = pd.DataFrame(
@@ -29,7 +29,7 @@ def merge_dataframes() -> pd.DataFrame:
 
 
 def filter_dataframe(df: pd.DataFrame, to_find: list[str], index_column: str) -> pd.DataFrame:
-    columns = df.columns
+    columns: list[str] = df.columns
     filtered_dataframe: pd.DataFrame = pd.DataFrame(
         columns=columns
     )

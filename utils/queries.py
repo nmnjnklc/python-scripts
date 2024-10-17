@@ -1,4 +1,23 @@
 queries: dict = {
+    "transfer_in_progress_enabled_companies": '''
+        SELECT companies.id AS companyId
+             , companies.companyName
+             , companies.dotNum
+        FROM companies
+        WHERE transferInProgress = true;
+    ''',
+
+    "vehicles_by_company_name": '''
+        SELECT vehicles.id
+             , vehicles.vehicleId
+             , vehicles.vin
+             , vehicles.active
+        FROM vehicles
+        JOIN companies
+            ON companies.id = vehicles.companyId
+        WHERE companies.companyName = "{0}";
+    ''',
+
     "elds": '''
         SELECT companies.companyName AS 'COMPANY NAME'
              , elds.serialNum AS 'SERIAL NUMBER'

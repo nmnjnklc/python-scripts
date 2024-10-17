@@ -42,10 +42,9 @@ def generate_csv(directory: Path, document_name: str, data: list[tuple]) -> None
             quoting=csv.QUOTE_ALL
         )
 
+        header = ["COMPANY NAME", "SERIAL NUMBER", "STATUS", "REPLACEMENT NOTE"]
         if "elds" in document_name:
-            header = ["COMPANY NAME", "SERIAL NUMBER", "STATUS", "REPLACEMENT NOTE", "FORWARDED TO"]
-        else:
-            header = ["COMPANY NAME", "SERIAL NUMBER", "STATUS", "REPLACEMENT NOTE"]
+            header.append("FORWARDED TO")
 
         writer.writerow(header)
         for row in data:
