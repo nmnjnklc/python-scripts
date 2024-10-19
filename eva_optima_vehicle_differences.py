@@ -23,7 +23,9 @@ def get_company_vehicles(company_name: str, connection_params: dict) -> list[dic
 
 
 def main() -> None:
-    env: dict = dotenv_values(dotenv_path=Path(".env"))
+    base_dir: Path = Path(__file__).resolve().parent.parent
+
+    env: dict = dotenv_values(dotenv_path=Path(base_dir, ".env"))
 
     optima_params: dict = json.loads(s=env.get("local_optimaeld"))
     eva_params: dict = json.loads(s=env.get("local_evaeld"))

@@ -105,7 +105,9 @@ def compare_csv_data(old_dir: Path, new_dir: Path) -> None:
 
 
 def main() -> None:
-    env: dict = dotenv_values(dotenv_path=Path("..", ".env"))
+    base_dir: Path = Path(__file__).resolve().parent.parent
+
+    env: dict = dotenv_values(dotenv_path=Path(base_dir, ".env"))
 
     location_adapters: dict = json.loads(env.get("location_adapters"))
     databases: dict = json.loads(env.get("databases"))

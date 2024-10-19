@@ -94,7 +94,9 @@ def send_command(session: requests.session, url: str, headers: dict, eld_serial_
 
 
 def main() -> None:
-    env: dict = dotenv_values(dotenv_path=Path(".", ".env"))
+    base_dir: Path = Path(__file__).resolve().parent.parent
+
+    env: dict = dotenv_values(dotenv_path=Path(base_dir, ".env"))
 
     username: str = env.get("lion8_skyonics_username")
     password: str = env.get("lion8_skyonics_password")
