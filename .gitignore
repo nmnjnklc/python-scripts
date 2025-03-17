@@ -1,10 +1,13 @@
 elds_for_deactivation/__pycache__/
-football_predictions/__pycache__/
+incident_scrapers/__pycache__/
 hardware_changes/__pycache__/
 calculate_ifta/__pycache__/
 utils/__pycache__/
+logs/__pycache__/
+logs/
 __pycache__/
 .idea/
 .venv/
 .env
+.log
 .DS_Store
